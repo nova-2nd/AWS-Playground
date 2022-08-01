@@ -120,7 +120,7 @@ resource "aws_instance" "Test1-EC2-Instance" {
   ami           = "ami-065deacbcaac64cf2"
   instance_type = "t2.micro"
   key_name      = aws_key_pair.Test1-Key-Pair.key_name
-  
+
   network_interface {
     network_interface_id = aws_network_interface.Test1-NIC.id
     device_index         = 0
@@ -138,6 +138,7 @@ EOF
 
   tags = {
     Name = "Test1-EC2-Instance"
+  }
 }
 
 
