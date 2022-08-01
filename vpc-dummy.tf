@@ -111,11 +111,6 @@ resource "aws_eip" "Test1-Elastic-IP" {
   }
 }
 
-output "Test1-Pub-IP" {
-  value       = aws_eip.Test1-Elastic-IP.public_ip
-  description = "Public IP of Test1"
-}
-
 resource "aws_key_pair" "Test1-Key-Pair" {
   key_name   = "Test1-Key-Pair"
   public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOD+Wth7Qd6AtRCXOxhgKrXDqiu/1L2biYVzY1zLtXi1 stefan@nader.zone"
@@ -144,4 +139,10 @@ echo "<h1>Deployed via Terraform</h1>" | sudo tee /var/www/html/index.html
   tags = {
     Name = "Test1-EC2-Instance"
   }
+}
+
+
+output "Test1-Pub-IP" {
+  value       = aws_eip.Test1-Elastic-IP.public_ip
+  description = "Public IP of Test1"
 }
