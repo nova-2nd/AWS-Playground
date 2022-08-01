@@ -5,6 +5,14 @@ terraform {
       version = "~> 3.0"
     }
   }
+
+  backend "s3" {
+    bucket = "aws-stefan-nader"
+    #dynamodb_table = "aws-stefan-nader"
+    key     = "terraform.tfstate"
+    encrypt = false
+    region  = "eu-central-1"
+  }
 }
 
 provider "aws" {
